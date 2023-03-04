@@ -20,6 +20,7 @@ defmodule LiveElementsTestbedWeb.Router do
     get "/", PageController, :home
 
     live "/todos", TodoLive
+    live "/data_table", Live.DataTable
   end
 
   # Other scopes may use custom stacks.
