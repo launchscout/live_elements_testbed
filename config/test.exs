@@ -5,7 +5,7 @@ import Config
 config :live_elements_testbed, LiveElementsTestbedWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "Y/uVoLUDplrYfzv2jcPanL06RYD/MeulRJ08cq2UZapD/vuRkiAR7wWIzt8a/kFw",
-  server: false
+  server: true
 
 # In test we don't send emails.
 config :live_elements_testbed, LiveElementsTestbed.Mailer,
@@ -19,3 +19,7 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :wallaby,
+  otp_app: :live_elements_testbed,
+  base_url: "http://localhost:4002"
