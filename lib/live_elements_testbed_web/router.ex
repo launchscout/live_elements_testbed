@@ -20,6 +20,7 @@ defmodule LiveElementsTestbedWeb.Router do
     get "/", PageController, :home
 
     live "/todos", TodoLive
+    live "/simple_guy", SimpleGuy
     live "/data_table", Live.DataTable
   end
 
