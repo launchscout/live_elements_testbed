@@ -1,24 +1,28 @@
 defmodule LiveElementsTestbedWeb.Live.DataTable do
   use LiveElementsTestbedWeb, :live_view
+
   require LiveElements.CustomElementsHelpers
   import LiveElements.CustomElementsHelpers
+
+  custom_element :bx_data_table, events: ["bx-table-header-cell-sort"]
+
+  @items [
+    %{foo: "Foo1", bar: "Bar3", baz: "Baz1"},
+    %{foo: "Foo2", bar: "Bar2", baz: "Baz2"},
+    %{foo: "Foo3", bar: "Bar1", baz: "Baz3"}
+  ]
 
   @impl true
   def mount(_params, _session, socket) do
     {:ok,
      socket
-     |> assign(
-       items: [%{foo: "Foo1", bar: "Bar1", baz: "Baz2"}, %{foo: "Foo2", bar: "Bar2", baz: "Baz2"}]
-     )}
+     |> assign(items: @items)}
   end
 
-  custom_element :bx_data_table, events: ["bx-table-header-cell-sort"]
-
   @impl true
-  def handle_event("bx-table-header-cell-sort", %{"sortDirection" => direction}, socket) do
-    IO.inspect(direction, label: "sort direction")
-    {:noreply, socket |> assign(
-      items: [%{foo: "Foo2", bar: "Bar2", baz: "Baz2"}, %{foo: "Foo1", bar: "Bar1", baz: "Baz1"}]
-    )}
+  def handle_event("bx-table-header-cell-sort", %{"columnId" => sort_by}, socket) do
+    {:noreply,
+     socket
+     |> assign(items: @items |> Enum.sort_by(&Map.get(&1, sort_by |> String.to_atom())))}
   end
 end
