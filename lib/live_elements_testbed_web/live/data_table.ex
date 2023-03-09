@@ -1,8 +1,7 @@
 defmodule LiveElementsTestbedWeb.Live.DataTable do
   use LiveElementsTestbedWeb, :live_view
 
-  require LiveElements.CustomElementsHelpers
-  import LiveElements.CustomElementsHelpers
+  use LiveElements.CustomElementsHelpers
 
   custom_element :bx_data_table, events: ["bx-table-header-cell-sort"]
 
