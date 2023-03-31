@@ -42,4 +42,5 @@ window.liveSocket = liveSocket
 
 import './todo-list';
 import './simple-guy';
+import './pie-chart';
 import '@carbon/web-components/es/components/data-table/index.js';

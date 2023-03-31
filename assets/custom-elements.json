@@ -10,6 +10,75 @@
     },
     {
       "kind": "javascript-module",
+      "path": "js/pie-chart.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieChartElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "chartData",
+              "type": {
+                "text": "{}"
+              },
+              "attribute": "chart-data"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "label"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "chart-data",
+              "type": {
+                "text": "{}"
+              },
+              "fieldName": "chartData"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-chart",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieChartElement",
+          "declaration": {
+            "name": "PieChartElement",
+            "module": "js/pie-chart.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-chart",
+          "declaration": {
+            "name": "PieChartElement",
+            "module": "js/pie-chart.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "js/simple-guy.ts",
       "declarations": [
         {
@@ -24,7 +93,7 @@
                 "text": "string"
               },
               "default": "''",
-              "attribute": "name"
+              "attribute": "first-name"
             },
             {
               "kind": "field",
@@ -38,7 +107,7 @@
           ],
           "attributes": [
             {
-              "name": "name",
+              "name": "first-name",
               "type": {
                 "text": "string"
               },
