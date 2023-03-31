@@ -13,8 +13,6 @@ defmodule LiveElementsTestbedWeb.CoreComponents do
   alias Phoenix.LiveView.JS
   import LiveElementsTestbedWeb.Gettext
 
-  use LiveElements.CustomElementsHelpers
-
   # custom_element :bx_paginate, events: []
   @doc """
   Renders a modal.

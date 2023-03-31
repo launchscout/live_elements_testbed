@@ -1,6 +1,8 @@
 defmodule LiveElementsTestbedWeb.TodoComponent do
   use LiveElementsTestbedWeb, :live_component
 
+  use LiveElements.CustomElementsHelpers
+
   @impl true
   def update(assigns, socket) do
     {:ok, socket |> assign(todos: ["hey"])}
