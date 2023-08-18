@@ -4,13 +4,12 @@ defmodule LiveElementsTestbedWeb.Features.SimpleGuyTest do
 
   import Wallaby.Query
 
-  feature "todo list", %{session: session} do
+  feature "simple guy", %{session: session} do
     session
     |> visit("/simple_guy")
-    |> within_shadow_dom("simple-guy", fn shadow_dom ->
-      shadow_dom
-      |> assert_has(css("div", text: "My name is Bob and I am 11 years old"))
-    end)
+    |> assert_has(css("simple-guy"))
+    |> find(css("simple-guy"))
+    |> shadow_root()
+    |> assert_has(css("div", text: "My name is Bob and I am 11 years old"))
   end
-
 end

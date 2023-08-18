@@ -1,0 +1,37 @@
+name: CI
+
+on: [push, repository_dispatch]
+
+jobs:
+  test:
+    name: Build and run tests
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout testbed
+        uses: actions/checkout@v3
+        with:
+          path: live_elements_testbed
+      - name: Checkout live_elements
+        uses: actions/checkout@v3
+        with:
+          repository: launchscout/live_elements
+          path: live_elements
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: '25.1' # Define the OTP version [required]
+          elixir-version: '1.14.0' # Define the elixir version [required]
+      - name: Install testbed dependencies
+        run: mix deps.get
+        working-directory: live_elements_testbed
+      - name: install testbed assets
+        run: npm install
+        working-directory: live_elements_testbed/assets
+      - name: build testbed javascript
+        run: mix esbuild default
+        working-directory: live_elements_testbed
+      - name: Run testbed integration tests
+        run: mix test
+        working-directory: live_elements_testbed
+
