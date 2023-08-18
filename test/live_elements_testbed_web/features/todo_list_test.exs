@@ -8,10 +8,15 @@ defmodule LiveElementsTestbedWeb.Features.TodoListTest do
     session
     |> visit("/todos")
     |> assert_text("todo list")
+    |> assert_has(css("todo-list"))
     |> find(css("todo-list"))
     |> shadow_root()
     |> fill_in(css("input[name='todo']"), with: "Do a thing")
     |> click(css("button"))
+
+    session
+    |> find(css("todo-list"))
+    |> shadow_root()
     |> assert_has(css("li", text: "Do a thing"))
   end
 
@@ -19,10 +24,15 @@ defmodule LiveElementsTestbedWeb.Features.TodoListTest do
     session
     |> visit("/with_component")
     |> assert_text("todo list")
+    |> assert_has(css("todo-list"))
     |> find(css("todo-list"))
     |> shadow_root()
     |> fill_in(css("input[name='todo']"), with: "Do a thing")
     |> click(css("button"))
+
+    session
+    |> find(css("todo-list"))
+    |> shadow_root()
     |> assert_has(css("li", text: "Do a thing"))
   end
 end
