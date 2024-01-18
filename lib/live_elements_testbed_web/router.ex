@@ -21,6 +21,7 @@ defmodule LiveElementsTestbedWeb.Router do
 
     live "/todos", TodoLive
     live "/simple_guy", SimpleGuy
+    live "/form_example", FormExample
     live "/eat_pie", EatPie
     live "/with_component", WithComponent
     live "/data_table", Live.DataTable
